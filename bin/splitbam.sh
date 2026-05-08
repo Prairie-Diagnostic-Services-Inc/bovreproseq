@@ -70,8 +70,8 @@ then
 # handle empty consensus. when there are no mapped reads.add sequence header
 else
 		echo -e ">$1 No consensus" > $1_consensus.fasta
-		echo -e "IC-EGFP 0 0" > "$1_mappedreads.txt"
-		echo -e "IC-EGFP 0 0" > "$1_full_length_mappedreads.txt"
+		echo -e "IC-EGFP 555 0 0.0000" > "$1_mappedreads.txt"
+		echo -e "IC-EGFP 555 0 0.0000" > "$1_full_length_mappedreads.txt"
 fi
 	# insert headers to mappedreads.txt
 
