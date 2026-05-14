@@ -29,7 +29,7 @@ def metagenomics_summary(
     )
 
     # Extract taxonomy id and sample id encoded in BLAST query id.
-    blast_df['kraken_taxid'] = blast_df['queryid'].str.split('_').str[1].astype(int)
+    blast_df['kraken_taxid'] = pd.to_numeric(blast_df['queryid'].str.split('_').str[1], errors='coerce').astype('Int64')
     blast_df['sampleid'] = blast_df['queryid'].str.split('_').str[0].astype(str)
 
     # Keep only high-confidence BLAST alignments and de-duplicate top hits.

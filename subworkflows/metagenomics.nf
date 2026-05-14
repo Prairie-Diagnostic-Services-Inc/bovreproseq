@@ -163,9 +163,9 @@ process blast_cons {
 	# Run BLAST and append results directly to report
 	blastn -task megablast -db ${blastdb_path}/${blastdb_name} -query ${consensus} -outfmt "6 qseqid sseqid length qcovs pident evalue bitscore staxids ssciname scomnames stitle" -max_target_seqs 5 >> "${SampleName}_blast.tsv" || true
 
-	# If only header was written (no BLAST hits), add a "none" placeholder row
+	# If only header was written (no BLAST hits), add a "NaN" placeholder row
 	if [[ \$(wc -l < "${SampleName}_blast.tsv") -le 1 ]]; then
-	    echo -e "none\tnone\tnone\tnone\tnone\tnone\tnone\tnone\tnone\tnone\tnone" >> "${SampleName}_blast.tsv"
+	    echo -e "NaN\tNaN\tNaN\tNaN\tNaN\tNaN\tNaN\tNaN\tNaN\tNaN\tNaN" >> "${SampleName}_blast.tsv"
 	fi
 	"""
 

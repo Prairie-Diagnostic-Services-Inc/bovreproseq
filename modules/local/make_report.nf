@@ -4,7 +4,7 @@ nextflow.enable.dsl=2
 process make_report {
 	publishDir "${params.out_dir}/",mode:"copy"
 	
-	label "low"
+	label "high"
 	input:
 	path (csv)
 	path(krona_reports_raw)
